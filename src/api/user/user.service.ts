@@ -11,12 +11,16 @@ export class UserService {
     @InjectRepository(UserEntity)
     private readonly usersRepository: Repository<UserEntity>,
   ) {}
-  create(createUserDto: CreateUserDto) {
-    return 'This action adds a new user';
+
+  async create(createUserDto: CreateUserDto) {
+    const saved = this.usersRepository.save(createUserDto);
+    return saved;
   }
 
   async findAll() {
-    return await this.usersRepository.find();
+    return await this.usersRepository.find({
+      relations: ['tasks'],
+    });
   }
 
   findOne(id: number) {
