@@ -1,10 +1,10 @@
 export default {
   type: 'postgres',
-  username: 'postgres',
-  password: '1234',
-  host: 'localhost',
+  username: process.env.USERNAME,
+  password: process.env.PASSWORD,
+  host: process.env.HOST,
   port: 5432,
-  database: 'postgres',
+  database: process.env.DATABASE,
   entities: ['src/**/**/*.entity{.ts,.js}'],
   migrations: ['src/database/migrations/*{.ts,.js}'],
   cli: {
