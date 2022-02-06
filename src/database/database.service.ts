@@ -13,12 +13,11 @@ export const databaseProviders = [
       return {
         //ssl: true,
         type: 'postgres' as const,
-        username: 'tfllpmidwfidsg',
-        password:
-          'bec2d9b9733561d8fcab2491f817f56a7eb719a08b187f46a8fe648baf7356a6',
-        host: 'ec2-52-45-83-163.compute-1.amazonaws.com',
+        username: process.env.USERNAME,
+        password: process.env.PASSWORD,
+        host: process.env.HOST,
         port: 5432,
-        database: 'dedgqrgpqfkeul',
+        database: process.env.DATABASE,
         entities: [__dirname + '/../**/*.entity{.ts,.js}'],
         migrations: [__dirname + '/migrations/*{.ts,.js}'],
       } as ConnectionOptions;

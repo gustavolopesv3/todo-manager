@@ -22,10 +22,11 @@
     "migration:generate": "ts-node node_modules/typeorm/cli.js migration:generate --config ./orm.config.ts --name",
     "migration:run": "ts-node node_modules/typeorm/cli.js migration:run --config ./orm.config.ts",
     "migration:revert": "ts-node node_modules/typeorm/cli.js migration:revert --config ./orm.config.ts",
-    "migration:create": "ts-node node_modules/typeorm/cli.js migration:create --config ./orm.config.ts --name"  
+    "migration:create": "ts-node node_modules/typeorm/cli.js migration:create --config ./orm.config.ts --name"
   },
   "dependencies": {
     "@nestjs/common": "^8.0.0",
+    "@nestjs/config": "^1.1.6",
     "@nestjs/core": "^8.0.0",
     "@nestjs/mapped-types": "*",
     "@nestjs/platform-express": "^8.0.0",
