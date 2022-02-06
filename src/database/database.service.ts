@@ -11,13 +11,14 @@ export const databaseProviders = [
     async useFactory(config: ConfigService) {
       console.log('HELLo', process.env.PORT);
       return {
-        // ssl: true,
+        ssl: true,
         type: 'postgres' as const,
-        username: config.get(Configuration.USERNAME),
-        password: config.get(Configuration.PASSWORD),
-        host: config.get(Configuration.HOST),
-        port: Number(config.get(Configuration.DB_PORT)),
-        database: config.get(Configuration.DATABASE),
+        username: 'tfllpmidwfidsg',
+        password:
+          'bec2d9b9733561d8fcab2491f817f56a7eb719a08b187f46a8fe648baf7356a6',
+        host: 'ec2-52-45-83-163.compute-1.amazonaws.com',
+        port: 5432,
+        database: 'dedgqrgpqfkeul',
         entities: [__dirname + '/../**/*.entity{.ts,.js}'],
         migrations: [__dirname + '/migrations/*{.ts,.js}'],
       } as ConnectionOptions;
