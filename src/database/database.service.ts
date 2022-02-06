@@ -8,7 +8,7 @@ export const databaseProviders = [
     async useFactory() {
       console.log('HELLo', process.env.PORT);
       return {
-        //ssl: { rejectUnauthorized: false },
+        ssl: { rejectUnauthorized: false },
         type: 'postgres' as const,
         username: process.env.USERNAME,
         password: process.env.PASSWORD,
