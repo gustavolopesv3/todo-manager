@@ -1,5 +1,11 @@
 import { UserEntity } from '../../user/entities/user.entity';
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 export enum StatusTask {
   TODO = 'TODO',
@@ -27,5 +33,6 @@ export class TaskEntity {
   status: StatusTask;
 
   @ManyToOne(() => UserEntity, (user) => user.tasks)
+  @JoinColumn({ name: 'user_id' })
   user: UserEntity;
 }
