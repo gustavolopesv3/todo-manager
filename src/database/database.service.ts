@@ -1,17 +1,14 @@
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Configuration } from '../config/config.keys';
-import { ConfigModule } from '../config/config.module';
-import { ConfigService } from '../config/config.service';
 import { ConnectionOptions } from 'typeorm';
 
 export const databaseProviders = [
   TypeOrmModule.forRootAsync({
-    imports: [ConfigModule],
-    inject: [ConfigService],
-    async useFactory(config: ConfigService) {
+    imports: [],
+    inject: [],
+    async useFactory() {
       console.log('HELLo', process.env.PORT);
       return {
-        ssl: { rejectUnauthorized: false },
+        //ssl: { rejectUnauthorized: false },
         type: 'postgres' as const,
         username: process.env.USERNAME,
         password: process.env.PASSWORD,
