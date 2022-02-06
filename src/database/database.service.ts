@@ -11,7 +11,7 @@ export const databaseProviders = [
     async useFactory(config: ConfigService) {
       console.log('HELLo', process.env.PORT);
       return {
-        //ssl: true,
+        ssl: true,
         type: 'postgres' as const,
         username: process.env.USERNAME,
         password: process.env.PASSWORD,
