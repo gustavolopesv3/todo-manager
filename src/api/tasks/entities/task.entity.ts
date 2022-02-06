@@ -26,6 +26,12 @@ export class TaskEntity {
   name: string;
 
   @Column({
+    type: 'varchar',
+    nullable: true,
+  })
+  description: string;
+
+  @Column({
     type: 'enum',
     enum: StatusTask,
     default: StatusTask.TODO,

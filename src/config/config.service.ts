@@ -7,7 +7,8 @@ export class ConfigService {
   constructor() {
     const isDevelopmentEnv = process.env.NODE_ENV !== 'production';
     if (isDevelopmentEnv) {
-      const envFilePath = __dirname + '/../../.env';
+      const envFilePath = __dirname + '/../../../.env';
+      console.log(envFilePath);
       const existsPath = fs.existsSync(envFilePath);
 
       if (!existsPath) {
@@ -24,6 +25,7 @@ export class ConfigService {
   }
 
   get(key: string): string {
+    console.log(this.envConfig);
     return this.envConfig[key];
   }
 }

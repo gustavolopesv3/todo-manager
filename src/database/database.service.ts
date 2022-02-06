@@ -9,14 +9,15 @@ export const databaseProviders = [
     imports: [ConfigModule],
     inject: [ConfigService],
     async useFactory(config: ConfigService) {
+      console.log('HELLo', process.env.PORT);
       return {
         // ssl: true,
         type: 'postgres' as const,
-        username: 'postgres',
-        password: '1234',
-        host: 'localhost',
-        port: 5432,
-        database: 'postgres',
+        username: config.get(Configuration.USERNAME),
+        password: config.get(Configuration.PASSWORD),
+        host: config.get(Configuration.HOST),
+        port: Number(config.get(Configuration.PORT)),
+        database: config.get(Configuration.DATABASE),
         entities: [__dirname + '/../**/*.entity{.ts,.js}'],
         migrations: [__dirname + '/migrations/*{.ts,.js}'],
       } as ConnectionOptions;
