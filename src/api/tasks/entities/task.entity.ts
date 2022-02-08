@@ -32,6 +32,20 @@ export class TaskEntity {
   description: string;
 
   @Column({
+    type: 'date',
+    name: 'start_at',
+    nullable: true,
+  })
+  startAt: string;
+
+  @Column({
+    type: 'date',
+    name: 'end_at',
+    nullable: true,
+  })
+  endAt: string;
+
+  @Column({
     type: 'enum',
     enum: StatusTask,
     default: StatusTask.TODO,

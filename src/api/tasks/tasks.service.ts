@@ -13,7 +13,8 @@ export class TasksService {
   ) {}
   async create(createTaskDto: CreateTaskDto) {
     console.log(createTaskDto);
-    return this.taskRepository.save(createTaskDto);
+    const create = this.taskRepository.create(createTaskDto);
+    return this.taskRepository.save(create);
   }
 
   findAll() {
