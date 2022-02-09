@@ -6,10 +6,10 @@ module.exports = {
   port: 5432,
   database: process.env.DATABASE,
   logging: ['query', 'error'],
-  //ssl: { rejectUnauthorized: false },
-  entities: ['src/api/**/**/*.entity{.ts,.js}'],
-  migrations: ['src/database/migrations/*{.ts,.js}'],
+  ssl: { rejectUnauthorized: false },
+  entities: ['dist/api/**/**/*.entity{.ts,.js}'],
+  migrations: ['dist/database/migrations/*{.ts,.js}'],
   cli: {
-    migrationsDir: 'src/database/migrations',
+    migrationsDir: 'dist/database/migrations',
   },
 };
