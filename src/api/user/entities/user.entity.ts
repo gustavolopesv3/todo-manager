@@ -1,5 +1,15 @@
 import { TaskEntity } from '../../tasks/entities/task.entity';
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  BeforeInsert,
+  Column,
+  CreateDateColumn,
+  DeleteDateColumn,
+  Entity,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
+import { hashSync } from 'bcrypt';
 
 @Entity('users')
 export class UserEntity {
@@ -8,10 +18,9 @@ export class UserEntity {
 
   @Column({
     type: 'varchar',
-    unique: true,
-    name: 'username',
+    name: 'full_name',
   })
-  userName: string;
+  fullName: string;
 
   @Column({
     type: 'boolean',
@@ -24,6 +33,29 @@ export class UserEntity {
   })
   email: string;
 
+  @Column()
+  password: string;
+
+  @CreateDateColumn({
+    name: 'created_at',
+  })
+  createdAt: string;
+
+  @UpdateDateColumn({
+    name: 'updated_at',
+  })
+  updatedAt: string;
+
+  @DeleteDateColumn({
+    name: 'deleted_at',
+  })
+  deletedAt: string;
+
   @OneToMany(() => TaskEntity, (task) => task.user)
   tasks: TaskEntity[];
+
+  @BeforeInsert()
+  hashPassword() {
+    this.password = hashSync(this.password, 10);
+  }
 }
