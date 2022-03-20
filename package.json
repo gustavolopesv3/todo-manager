@@ -19,11 +19,11 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js --config ./orm.config.js",
-    "migration:generate": "ts-node node_modules/typeorm/cli.js migration:generate --config ./orm.config.js --name",
-    "migration:run": "node node_modules/typeorm/cli.js migration:run --config ./orm.config.js",
-    "migration:revert": "ts-node node_modules/typeorm/cli.js migration:revert --config ./orm.config.js",
-    "migration:create": "ts-node node_modules/typeorm/cli.js migration:create --config ./orm.config.js --name"
+    "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js --config ./orm.config.ts",
+    "migration:generate": "ts-node node_modules/typeorm/cli.js migration:generate --config ./orm.config.ts --name",
+    "migration:run": "ts-node node_modules/typeorm/cli.js migration:run --config ./orm.config.ts",
+    "migration:revert": "ts-node node_modules/typeorm/cli.js migration:revert --config ./orm.config.ts",
+    "migration:create": "ts-node node_modules/typeorm/cli.js migration:create --config ./orm.config.ts --name"
   },
   "dependencies": {
     "@nestjs/common": "^8.0.0",

@@ -11,9 +11,9 @@ import {
 } from 'typeorm';
 import { hashSync } from 'bcrypt';
 
-export enum Roles {
-  'ADMIN',
-  'USER',
+export enum Role {
+  ADMIN = 'ADMIN',
+  USER = 'USER',
 }
 @Entity('users')
 export class UserEntity {
@@ -42,10 +42,10 @@ export class UserEntity {
 
   @Column({
     type: 'enum',
-    enum: Roles,
-    default: Roles.USER,
+    enum: Role,
+    default: Role.USER,
   })
-  role: Roles;
+  role: Role;
 
   @CreateDateColumn({
     name: 'created_at',

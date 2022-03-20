@@ -7,10 +7,10 @@ export const databaseProviders = [
     inject: [],
     async useFactory() {
       return {
-        ssl: { rejectUnauthorized: false },
+        //ssl: { rejectUnauthorized: false },
         type: 'postgres' as const,
-        username: process.env.USERNAME,
-        password: process.env.PASSWORD,
+        username: process.env.DB_USERNAME,
+        password: String(process.env.DB_PASSWORD),
         host: process.env.HOST,
         port: 5432,
         database: process.env.DATABASE,
