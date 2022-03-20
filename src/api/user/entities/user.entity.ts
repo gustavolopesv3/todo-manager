@@ -11,6 +11,10 @@ import {
 } from 'typeorm';
 import { hashSync } from 'bcrypt';
 
+export enum Roles {
+  'ADMIN',
+  'USER',
+}
 @Entity('users')
 export class UserEntity {
   @PrimaryGeneratedColumn('increment')
@@ -35,6 +39,13 @@ export class UserEntity {
 
   @Column()
   password: string;
+
+  @Column({
+    type: 'enum',
+    enum: Roles,
+    default: Roles.USER,
+  })
+  role: Roles;
 
   @CreateDateColumn({
     name: 'created_at',

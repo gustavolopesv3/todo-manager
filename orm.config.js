@@ -7,9 +7,9 @@ module.exports = {
   database: process.env.DATABASE,
   logging: ['query', 'error'],
   //ssl: { rejectUnauthorized: false },
-  entities: ['dist/api/**/**/*.entity{.ts,.js}'],
-  migrations: ['dist/database/migrations/*{.ts,.js}'],
+  entities: ['src/api/**/**/*.entity{.ts,.js}'],
+  migrations: ['src/database/migrations/*{.ts,.js}'],
   cli: {
-    migrationsDir: 'dist/database/migrations',
+    migrationsDir: 'src/database/migrations',
   },
 };
