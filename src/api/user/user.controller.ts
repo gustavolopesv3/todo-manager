@@ -27,8 +27,9 @@ export class UserController {
     return this.userService.create(createUserDto);
   }
 
+  @Roles(Role.ADMIN)
+  @UseGuards(AuthGuard('jwt'), RolesGuard)
   @Get()
-  @UseGuards(AuthGuard('jwt'))
   findAll() {
     return this.userService.findAll();
   }
